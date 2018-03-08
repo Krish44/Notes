@@ -4,35 +4,37 @@
 # Display the lines for given line number
 	sed -n '37p' file
 
+# Display only specified line
+	awk 'NR==5' file
+	
 # Print the number of characters in each line of a text file
 	awk '{ print length($0); }' file
 
 # Length of specific line in a file
-
+	awk 'NR==5' file | wc -L (or)
+	
 # Display Length of Longest Line
 	wc -L file
 
-# Display only specified line
-	awk 'NR==5' file
-
 # List only directories
 	ls -d */
-	
+
 # Display appending 2 files
 	cat file1 file2
-	
+
 # Range of lines from a file
 	awk 'FNR>=20 && FNR<=40' file_name  (or)  awk 'NR>=20 && NR<=40' file_name
  	sed -n '20,40p;41q' file_name   (or)  sed -n '20,40p' file_name
 
 # Delete line range from a file
    sed -i '3,7d' SampleFile.txt
-	
+
 # Delete file content without opening the file  (* try)
 	> File
 	sed -n '1p;$p' file
 	tail -n +2 "$FILE" | sponge "$FILE"   # + sign kind of inverts the argument. Hence prints everything except 1st line
-	sed -i '1d' filename
+	sed -i '1d' filename   # may not work
+	sed -i '1,$d' filename
 	
 # Remove blank lines
 	sed -i '/^$/d' file
@@ -41,7 +43,7 @@
 	time <command>
 	
 # Search files from given directory for a keyword
- find . -type f | xargs grep -winr "keyword"
+	find . -type f | xargs grep -winr "keyword"
 
 # Delete files older than 30 days:
 	find . -mtime +30 -exec rm {} \;
@@ -57,3 +59,8 @@
 		find /path/to/ -type f -mtime +7 -name '*.gz' -execdir rm -- '{}' +
 	* Equivalent to above but using delete
 		find /path/to/ -type f -mtime +7 -name '*.gz' -delete
+# "wait" is a built in shell command and when you execute "wait" if you 
+	executed background command ("&") shell will wait and does not execute any more command until background 
+	command is finished. 
+
+# Sleep = x amount of seconds before continuing or starting 
