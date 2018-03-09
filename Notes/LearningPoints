@@ -1,0 +1,86 @@
+shell running on :  $SHELL
+** Recursively Search All Files For A String : grep -r "word"
+Object file, exe file creation
+debugging c code
+----------------------------------------------------------------------
+** constant v/s macros
+ Macros are handled by the pre-processor - the pre-processor does text replacement in your source file, 
+ replacing all occurances of 'A' with the literal 8.
+ Constants are handled by the compiler. They have the added benefit of type safety.
+ For the actual compiled code, with any modern compiler, there should be zero performance difference between the two.
+----------------------------------------------------------------------
+** linked list- middle node- nober of traverse
+** typecasting
+** auto variable
+** where auto variable will be stored, heap / stack
+----------------------------------------------------------------------
+** Segmentation fault :
+ + A segmentation fault occurs when a program attempts to access a memory location that it is not allowed to access, 
+ or attempts to access a memory location in a way that is not allowed (for example, attempting to write to a 
+ read-only location, or to overwrite part of the operating system.
+ 
+ + Segfaults are almost always due to trying to read or write a non-existent array element, 
+ not properly defining a pointer before using it, or (in C programs) accidentally using a variable's value as an address.
+----------------------------------------------------------------------
+** Memory leak
+ o
+"How to find the middle node of a singly linked list in only one traversal, 
+and the twist is we don't know the number of nodes in the linked list?"
+----------------------------------------------------------------------
+Toggle 2 byte of data:
+----------------------------------------------------------------------
+** Delete Empty lines:
+  awk 'NF' file
+ + NF stands for "number of fields", those lines being empty have 0 fiedls, so that awk evaluates 0 to False and 
+  no line is printed; however, if there is at least one field, the evaluation is True and makes awk perform 
+  its default action: print the current line.
+  
+  sed '/^\s*$/d'
+ + This uses \s to match any whitespace character. 
+ 
+----------------------------------------------------------------------
+Amaze:
+
+** Grep for case insensitive/multiple keywords
+** Check if server is connected to internet
+** without grep -i search for all cases
+** 
+---------------------------------------------------------------------
+
+
+When a variable gets declared, memory to hold a variable of that type is allocated at an unused memory location.
+The type, int, tells the compiler how much memory to store starting at that address.
+-------------------------------------------------------------------------------------
+A C compiler converts C source code to assembly source code. 
+variable names are converted to relative memory addresses
+To a compiler all variables are just memory addresses and sizes.
+-------------------------------------------------------------------------------------
+A pointer is a variable that holds the memory address of another variable.
+
+The C language is call-by-value. 
+-------------------------------------------------------------------------------------
+Dereferencing is just indirection. 
+It is telling the compiler, “I have the address of a variable in the pointer. 
+I want to access that pointed-to address either to get a value or set a value".
+Dereference means to indirectly access the address stored in the pointer. 
+-------------------------------------------------------------------------------------
+int ival = 1;
+int *iptr = &ival;
+(OR)
+int ival ,*iptr;
+iptr = &ival;
+-------------------------------------------------------------------------------------
+int myarray[4] = {1,2,3,0};
+int *ptr = myarray;
+When an array is created, the array variable cannot be reassigned.
+
+-------------------------------------------------------------------------------------
+A pointer to a struct holds the memory address of the first element in the struct
+	struct person first;
+	struct person *ptr;
+ 
+	first.age = 21;
+	first.name = "full name";
+	ptr = &first;
+-------------------------------------------------------------------------------------
+
