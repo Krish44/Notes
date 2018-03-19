@@ -39,6 +39,15 @@
 # Remove blank lines
 	sed -i '/^$/d' file
 
+# Remove all possible spaces at the end of the line  
+	sed 's/ *$//g' file_name  
+
+# Removes all blank lines, even ones beginning with white space	
+	sed -i_bkp '/^ *$/d' file_name  # Creates a back-up file with _bkp option
+
+# Executing two sed commands together:
+	sed 's/ *$//g;/^ *$/d' file_name  	#Removes ending white spaces + blank lines in single command
+
 # Time the operation
 	time <command>
 	
@@ -59,8 +68,18 @@
 		find /path/to/ -type f -mtime +7 -name '*.gz' -execdir rm -- '{}' +
 	* Equivalent to above but using delete
 		find /path/to/ -type f -mtime +7 -name '*.gz' -delete
+		
 # "wait" is a built in shell command and when you execute "wait" if you 
 	executed background command ("&") shell will wait and does not execute any more command until background 
 	command is finished. 
 
 # Sleep = x amount of seconds before continuing or starting 
+
+# Remove duplicate lines in a file
+	awk '!seen[$0]++' file.txt
+	
+# http://www.theunixschool.com/2014/08/sed-examples-remove-delete-chars-from-line-file.html	
+
+# Identifying and removing null characters in UNIX
+	sed -i 's/\x0//g' null.txt
+	
