@@ -139,3 +139,7 @@
 # Add column values from selected row number
    ( Column to be considered = 3rd, from row 6 )
    awk 'NR>5 {k+=$3} END {print k}' FileName
+
+# Move line/Block of lines in VI editor
+  :m 12	   -move current line to after line 12  
+  :5,7m 21 -move lines 5, 6 and 7 to after line 21
