@@ -143,3 +143,11 @@
 # Move line/Block of lines in VI editor
   :m 12	   -move current line to after line 12  
   :5,7m 21 -move lines 5, 6 and 7 to after line 21
+
+--------------------------------------------------------------------------------------------------------   
+# Links:
+ Sed usage: http://www.theunixschool.com/2014/08/sed-examples-remove-delete-chars-from-line-file.html
+ awk usage: https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/
+ xargs usgae: https://www.thegeekstuff.com/2013/12/xargs-examples/
+ 
+--------------------------------------------------------------------------------------------------------
