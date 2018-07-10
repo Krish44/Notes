@@ -6,7 +6,7 @@
 	
 ###### Find number of lines in a file:
     awk 'END {print NR}' file.txt  (or)
-	wc -l file.txt       ###### Prints along with file name
+	wc -l file.txt       (Prints along with file name)
 	
 ###### Display only specified line
 	awk 'NR==5' file
