@@ -22,7 +22,11 @@
 
 ###### List only directories
 	ls -d */
-
+###### Multiple Directory Structure in a single command
+	mkdir -p {a,b,c}    # Multiple directories in the same location
+	mkdir -p a/b/c    # Diretory chain
+	mkdir -p {a/a1/a2,b/{b1,b2},c}
+	
 ###### Display appending 2 files
 	cat file1 file2
 
@@ -109,13 +113,11 @@
     ls -l | grep -v ^d
 
  * For any available file
-   find ./ maxdepth 1 -type f | sort -u      
+   find ./ -maxdepth 1 -type f | sort -u      
 
  * For file withName starting with Data
-   find ./ maxdepth 1 -name 'Data*' | sort -u  
-   
- 
-	 
+   find ./ -maxdepth 1 -name 'Data*' | sort -u  
+ 	 
 ###### Replace exact word:
 	\<\> will search for exact word, " " surrounded will allow to use variables inside  
 	sed "s/\<sample_name\>/$SAMP###### Replace first occurrence of the keyword
