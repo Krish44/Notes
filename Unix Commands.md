@@ -63,7 +63,11 @@
 
 ###### Delete files older than 30 days:
 	find . -mtime +30 -exec rm {} \;
-	
+
+###### tee command
+	- Output of a program can be both displayed and saved in a file
+	wc -l file1.txt| tee file2.txt
+	Displays on screen as well as output wil be moved to file too.
 ###### Save the deleted files to a log file:
 	find /home/a -mtime +5 -exec ls -l {} \; > mylogfile.log
 
