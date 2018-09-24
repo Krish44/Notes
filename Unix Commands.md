@@ -150,6 +150,38 @@
 	  :m 12	   #move current line to after line 12    
 	  :5,7m 21 #move lines 5, 6 and 7 to after line 21  
 
+ ###### Print range of char in a file  
+cut -c 1-7 state.txt    # If range is known  
+cut -c 1- state.txt      # Till end   
+
+###### Gives last field in a file  
+awk -F"/" '{print $NF}' file   
+
+###### Dirname opp to base name 
+INPUT:  /home/parent/child1/filename    
+dirname: /home/parent/child1/  
+basename: filename  
+
+###### rev command  
+###### Temp exit to command mode
+:!sh     (or)   :sh  (or)  :bash  
+$exit  - to get back  
+
+:! <command>  
+ex: :! pwd  
+
+###### Print lines between pattern  
+awk '/PAT1/,/PAT2/' file    
+
+- Print lines between PAT1 and PAT2 - not including PAT1 and PAT2   
+awk '/PAT1/{flag=1; next} /PAT2/{flag=0} flag' file  
+
+https://stackoverflow.com/questions/38972736/how-to-select-lines-between-two-patterns  
+
+###### Extract 2nd field after the search key  
+ awk '/potato:/ {print $2}'   
+(Equivalent to )    
+grep 'potato:' file.txt | cut -d\   -f2      
 --------------------------------------------------------------------------------------------------------   
 ###### Links:
   - Sed usage: http://www.theunixschool.com/2014/08/sed-examples-remove-delete-chars-from-line-file.html
