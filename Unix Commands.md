@@ -84,7 +84,8 @@
 	executed background command ("&") shell will wait and does not execute any more command until background 
 	command is finished. 
 
-###### Sleep = x amount of seconds before continuing or starting 
+###### Sleep
+	Sleep = x amount of seconds before continuing or starting 
 
 ###### Remove duplicate lines in a file
 	awk '!seen[$0]++' file.txt
@@ -113,34 +114,40 @@
      comm -12 File1.txt File2.txt
 
 ###### List only files in the alphabetic order (In base directory only, no need to check in sub directory)
- * Using ls command list only files in a dir
-    ls -l | grep -v ^d
+ * Using ls command list only files in a dir  
+        
+       ls -l | grep -v ^d  
 
- * For any available file
-   find ./ -maxdepth 1 -type f | sort -u      
+ * For any available file   
+ 
+       find ./ -maxdepth 1 -type f | sort -u        
 
- * For file withName starting with Data
-   find ./ -maxdepth 1 -name 'Data*' | sort -u  
+ * For file withName starting with Data    
+   	
+       find ./ -maxdepth 1 -name 'Data*' | sort -u   
  	 
 ###### Replace exact word:
 	\<\> will search for exact word, " " surrounded will allow to use variables inside  
 	sed "s/\<sample_name\>/$SAMP###### Replace first occurrence of the keyword
-	* Ignoring case (i)  
+* Ignoring case (i)  
 	sed -i.bkp 's/foo/bar/i' FileName
 
-	* Replace 2nd Occurrence of the file    
-	sed 's/foo/FOO/2' 
+* Replace 2nd Occurrence of the file    
+		
+		sed 's/foo/FOO/2' 
 
 	Ex: testline="foo bar foo bar foo bar foo bar"  
-	echo "$testline" | sed 's/foo/FOO/3g'  
-	foo bar foo bar FOO bar FOO bar LE/g" FileName
+		
+		echo "$testline" | sed 's/foo/FOO/3g'  
+	o/P: bar foo bar FOO bar FOO bar LE/g" FileName
   
 ###### Add 3rd column values if pattern matches
   	awk -F '|' '$1 ~ /pattern/ {sum += $3} END {print sum}' FileName
   
 ###### Add all values at column 3 
-	   (Ignores character values and considers only numericals at col 3)  
-	   awk '{k+=$3} END {print k}' FileName 
+Ignores character values and considers only numericals at col 3  
+	
+	awk '{k+=$3} END {print k}' FileName 
    
 ###### Add column values from selected row number
 	   ( Column to be considered = 3rd, from row 6 )  
@@ -150,38 +157,49 @@
 	  :m 12	   #move current line to after line 12    
 	  :5,7m 21 #move lines 5, 6 and 7 to after line 21  
 
- ###### Print range of char in a file  
-cut -c 1-7 state.txt    # If range is known  
-cut -c 1- state.txt      # Till end   
+###### Print range of char in a file  
+* If range is known
+		
+		cut -c 1-7 state.txt  
+* Till end   	
+
+		cut -c 1- state.txt      
 
 ###### Gives last field in a file  
-awk -F"/" '{print $NF}' file   
+	awk -F"/" '{print $NF}' file   
 
-###### Dirname opp to base name 
-INPUT:  /home/parent/child1/filename    
-dirname: /home/parent/child1/  
-basename: filename  
+###### Dirname opp to basename 
+INPUT:  /home/parent/child1/filename   
+
+	dirname INPUT  
+output: /home/parent/child1/ 
+	    
+	basename INPUT
+output: filename  
 
 ###### rev command  
+Reverses the input  string
 ###### Temp exit to command mode
-:!sh     (or)   :sh  (or)  :bash  
-$exit  - to get back  
-
-:! <command>  
+	:!sh     (or)   :sh  (or)  :bash  
+	$exit  - to get back  
+Directly from the editor:
+	
+	:! <command>  
 ex: :! pwd  
 
 ###### Print lines between pattern  
-awk '/PAT1/,/PAT2/' file    
+	awk '/PAT1/,/PAT2/' file    
+Print lines between PAT1 and PAT2 - not including PAT1 and PAT2   
 
-- Print lines between PAT1 and PAT2 - not including PAT1 and PAT2   
-awk '/PAT1/{flag=1; next} /PAT2/{flag=0} flag' file  
+	awk '/PAT1/{flag=1; next} /PAT2/{flag=0} flag' file  
 
 https://stackoverflow.com/questions/38972736/how-to-select-lines-between-two-patterns  
 
 ###### Extract 2nd field after the search key  
- awk '/potato:/ {print $2}'   
-(Equivalent to )    
-grep 'potato:' file.txt | cut -d\   -f2      
+	awk '/potato:/ {print $2}'   
+Equivalent to:   
+
+	grep 'potato:' file.txt | cut -d\   -f2      
 --------------------------------------------------------------------------------------------------------   
 ###### Links:
   - Sed usage: http://www.theunixschool.com/2014/08/sed-examples-remove-delete-chars-from-line-file.html
