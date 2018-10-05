@@ -112,7 +112,20 @@
 
 ###### Extract common lines between files
      comm -12 File1.txt File2.txt
+###### Find lines from a file which are not present in another file
+     comm -23 a.txt b.txt
+By default, comm outputs 3 columns: left-only, right-only, both. The -1, -2 and -3 switches suppress these columns.  
+So, -23 hides the right-only and both columns, showing the lines that appear only in the first (left) file.  
 
+###### Find Files based on size
+To find files larger than 100MB:  
+
+	find . -type f -size +100M	
+To find files smaller than 100MB:
+	
+	find . -type f -size -100M
+###### Sort texts inside a file in alphabetic order
+	sort <fileName> -o <fileName>	
 ###### List only files in the alphabetic order (In base directory only, no need to check in sub directory)
  * Using ls command list only files in a dir  
         
