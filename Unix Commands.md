@@ -22,6 +22,11 @@
 
 ###### List only directories
 	ls -d */
+
+###### List only hidden files in a directory
+	ls -d .!(|.)
+	(or)
+	ls -d .?*
 	
 ###### printenv - print all or part of environment
     	Ex         : printenv HOME 
@@ -47,11 +52,6 @@
 	sed -n '1p;$p' file
 	tail -n +2 "$FILE" | sponge "$FILE"   # + sign kind of inverts the argument. Hence prints everything except 1st line
 	sed -i '1,$d' filename
-	
-###### List only hidden files in a directory
-	ls -d .!(|.)
-	(or)
-	ls -d .?*
 
 ###### Remove blank lines
 	sed -i '/^$/d' file
