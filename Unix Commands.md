@@ -91,8 +91,8 @@
 		find /path/to/ -type f -mtime +7 -name '*.gz' -delete
 		
 ###### "wait" is a built in shell command and when you execute "wait" if you 
-	executed background command ("&") shell will wait and does not execute any more command until background 
-	command is finished. 
+	executed background command ("&") shell will wait and does not execute any more command  
+	until background command is finished.  
 
 ###### Sleep
 	Sleep = x amount of seconds before continuing or starting 
@@ -115,30 +115,30 @@
 		(the first argument is $1, the second argument is $2, and so on).
 	$#	The number of arguments supplied to a script.
 	$*	All the arguments are double quoted. If a script receives two arguments, $* is equivalent to $1 $2.
-	$@	All the arguments are individually double quoted. If a script receives two arguments, $@ is equivalent to $1 $2.
+	$@	All the arguments are individually double quoted. 
+	        If a script receives two arguments, $@ is equivalent to $1 $2.  
 	$?	The exit status of the last command executed.
-	$$	The process number of the current shell. For shell scripts, this is the process ID under which they are executing.
+	$$	The process number of the current shell. For shell scripts, this is the process ID 
+	        under which they are executing.
 	$!	The process number of the last background command.	
 
 ###### Extract common lines between files
      comm -12 File1.txt File2.txt
 ###### Find lines from a file which are not present in another file
      comm -23 a.txt b.txt
-By default, comm outputs 3 columns: left-only, right-only, both. The -1, -2 and -3 switches suppress these columns.  
-So, -23 hides the right-only and both columns, showing the lines that appear only in the first (left) file.  
+    By default, comm outputs 3 columns: left-only, right-only, both. The -1, -2 and -3 switches suppress these columns  
+    So, -23 hides the right-only and both columns, showing the lines that appear only in the first (left) file.  
 
 ###### Find Files based on size
-To find files larger than 100MB:  
-
+    To find files larger than 100MB:  
 	find . -type f -size +100M	
-To find files smaller than 100MB:
-	
+    To find files smaller than 100MB:
 	find . -type f -size -100M
 ###### Sort texts inside a file in alphabetic order
 	sort <fileName> -o <fileName>	
 ###### List only files in the alphabetic order (In base directory only, no need to check in sub directory)
  * Using ls command list only files in a dir  
-        
+ 
        ls -l | grep -v ^d  
 
  * For any available file   
@@ -150,10 +150,13 @@ To find files smaller than 100MB:
        find ./ -maxdepth 1 -name 'Data*' | sort -u   
  	 
 ###### Replace exact word:
-	\<\> will search for exact word, " " surrounded will allow to use variables inside  
-	sed "s/\<sample_name\>/$SAMP###### Replace first occurrence of the keyword
+\<\> will search for exact word, " " surrounded will allow to use variables inside  
+
+	sed "s/\<sample_name\>/$SAMP  
+###### Replace first occurrence of the keyword
 * Ignoring case (i)  
-	sed -i.bkp 's/foo/bar/i' FileName
+                          
+		sed -i.bkp 's/foo/bar/i' FileName
 
 * Replace 2nd Occurrence of the file    
 		
@@ -162,7 +165,7 @@ To find files smaller than 100MB:
 	Ex: testline="foo bar foo bar foo bar foo bar"  
 		
 		echo "$testline" | sed 's/foo/FOO/3g'  
-	o/P: bar foo bar FOO bar FOO bar LE/g" FileName
+	o/p: foo bar foo bar FOO bar FOO bar
   
 ###### Add 3rd column values if pattern matches
   	awk -F '|' '$1 ~ /pattern/ {sum += $3} END {print sum}' FileName
@@ -201,14 +204,14 @@ output: /home/parent/child1/
 output: filename  
 
 ###### rev command  
-Reverses the input  string
+	Reverses the input  string
 ###### Temp exit to command mode
 	:!sh     (or)   :sh  (or)  :bash  
 	$exit  - to get back  
 Directly from the editor:
 	
 	:! <command>  
-ex: :! pwd  
+	Ex: :! pwd  
 
 ###### Print lines between pattern  
 	awk '/PAT1/,/PAT2/' file    
@@ -228,5 +231,6 @@ Equivalent to:
   - Sed usage: http://www.theunixschool.com/2014/08/sed-examples-remove-delete-chars-from-line-file.html
   - awk usage: https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/
   - xargs usgae: https://www.thegeekstuff.com/2013/12/xargs-examples/
+  - Parameter Expansion: http://mywiki.wooledge.org/BashFAQ/073?action=show&redirect=ParameterExpansion
  
 --------------------------------------------------------------------------------------------------------
