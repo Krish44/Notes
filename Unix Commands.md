@@ -114,7 +114,8 @@
 		Here n is a positive decimal number corresponding to the position of an argument 
 		(the first argument is $1, the second argument is $2, and so on).
 	$#	The number of arguments supplied to a script.
-	$*	All the arguments are double quoted. If a script receives two arguments, $* is equivalent to $1 $2.
+	$*	All the arguments are double quoted. 
+		If a script receives two arguments, $* is equivalent to $1 $2.
 	$@	All the arguments are individually double quoted. 
 	        If a script receives two arguments, $@ is equivalent to $1 $2.  
 	$?	The exit status of the last command executed.
@@ -126,8 +127,10 @@
      comm -12 File1.txt File2.txt
 ###### Find lines from a file which are not present in another file
      comm -23 a.txt b.txt
-    By default, comm outputs 3 columns: left-only, right-only, both. The -1, -2 and -3 switches suppress these columns  
-    So, -23 hides the right-only and both columns, showing the lines that appear only in the first (left) file.  
+    By default, comm outputs 3 columns: left-only, right-only, both.  
+    The -1, -2 and -3 switches suppress these columns.   
+    So, -23 hides the right-only and both columns,  
+    showing the lines that appear only in the first (left) file.   
 
 ###### Find Files based on size
     To find files larger than 100MB:  
