@@ -41,10 +41,10 @@
 	
 ###### Dirname opp to basename 
 	INPUT:  /home/parent/child1/filename   
-	dirname INPUT  
+		dirname INPUT  
 	output: /home/parent/child1/ 
 	    
-	basename INPUT
+		basename INPUT
 	output: filename 
 	
 ### vi editor
