@@ -3,7 +3,16 @@
 ###### printenv - print all or part of environment
 	Ex         : printenv HOME  
 	similar to : echo $HOME
+###### Release check
+	cat /etc/redhat-release  # redhat
+	cat /etc/lsb-release  # To get more details on OS
 
+###### script syntax check
+	sh -n <script name>
+
+###### special char check in a file
+	cat -A <FileName>
+	
 ### Parameter handling
 ###### Variable	Description
 	$0	The filename of the current script.
@@ -35,7 +44,7 @@
 	mkdir -p {a/a1/a2,b/{b1,b2},c}
 
 ###### Size of a directory
-      du -sh <dir-name>	
+	du -sh <dir-name>	
 ###### Available space in current disk
 	df -kh .
 	
@@ -46,6 +55,11 @@
 	    
 		basename INPUT
 	output: filename 
+
+### User
+###### Get user's details
+	id -a <UserID>             # Gives UID, GID
+	#The root user has a UID of 0
 	
 ### vi editor
 ###### Move line/Block of lines in VI editor
@@ -87,7 +101,11 @@ Directly from the editor:
 		find /path/to/ -type f -mtime +7 -name '*.gz' -execdir rm -- '{}' +
 	* Equivalent to above but using delete
 		find /path/to/ -type f -mtime +7 -name '*.gz' -delete
-
+###### Delete file starting with special char using inode number
+	Get the inode number of the file
+		ls -i
+	Remove the file using find commad
+		find . -inum 106701465 | xargs rm 
 ###### Identifying and removing null characters from file in UNIX
 	sed -i 's/\x0//g' null.txt
 	
@@ -226,11 +244,16 @@ Ignores character values and considers only numericals at col 3
 ###### Sleep
 	Sleep = x amount of seconds before continuing or starting 	
 
+### String operations
+###### substr
+	a=hello
+	b=`expr substr $a 2 3` 
+	echo $b  # output: ell
 ###### rev command  
 	Reverses the input  string
      
 --------------------------------------------------------------------------------------------------------   
-###### Links:
+### Links:
   - Sed usage: http://www.theunixschool.com/2014/08/sed-examples-remove-delete-chars-from-line-file.html
   - awk usage: https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/  
                https://www.thegeekstuff.com/2010/02/awk-conditional-statements/  
