@@ -38,6 +38,17 @@
 	(or)
 	ls -d .?*
 		
+###### Get hidden files   
+	ls -l .??*  
+	(or)  
+	ls  -a| grep -E "^\."   
+   
+   
+###### Sort as per size   
+	ls -S | head -5   
+	(or)  
+	ls -s| sort -nr | head -5   
+
 ###### Multiple Directory Structure in a single command
 	mkdir -p {a,b,c}    # Multiple directories in the same location
 	mkdir -p a/b/c    # Diretory chain
@@ -87,6 +98,13 @@ Directly from the editor:
 ###### Search files from given directory for a keyword
 	find . -type f | xargs grep -winr "keyword"
 
+###### Find all empty files (zero byte file)    
+	find ./ -maxdepth 3 -empty   
+	find ~ -empty     # (From home directory)   
+   
+###### List only the non-hidden empty files only in the current directory.   
+	find . -maxdepth 1 -empty -not -name ".*"   
+   
 ###### Delete files older than 30 days:
 	find . -mtime +30 -exec rm {} \;
 
@@ -155,7 +173,40 @@ Directly from the editor:
 	Ex: testline="foo bar foo bar foo bar foo bar"  
 		echo "$testline" | sed 's/foo/FOO/3g'  
 	o/p: foo bar foo bar FOO bar FOO bar
-  
+	
+##### awk syntax
+	BEGIN { Actions}   
+	{ACTION} # Action for everyline in a file   
+	END { Actions }   
+
+	# is for comments in Awk  
+
+	awk '/search pattern1/ {Actions}
+	     /search pattern2/ {Actions}' file
+	     
+###### sample data:   
+	$cat employee.txt   
+	100  Thomas  Manager    Sales       $5,000   
+	200  Jason   Developer  Technology  $5,500   
+	300  Sanjay  Sysadmin   Technology  $7,000   
+	400  Nisha   Manager    Marketing   $9,500   
+	500  Randy   DBA        Technology  $6,000   
+   
+###### Print 2 matching patterns   
+	awk '/Thomas/   
+	> /Nisha/' employee.txt   
+   
+###### Print records whose 1st field value greater than 200   
+	awk '$1 >200' employee.txt   
+   
+###### Print records corresponding to Technology dept   
+	awk '$4 ~/Technology/' employee.txt   
+   
+###### Get the count for a matching patrtern in a specific field   
+	awk 'BEGIN { count=0;}   
+	$4 ~ /Technology/ { count++; }   
+	END { print "Number of employees in Technology Dept =",count;}' employee.txt
+
 ###### Add 3rd column values if pattern matches
   	awk -F '|' '$1 ~ /pattern/ {sum += $3} END {print sum}' FileName
   
@@ -177,7 +228,7 @@ Ignores character values and considers only numericals at col 3
 ###### Gives last field in a file  
 	awk -F"/" '{print $NF}' file  
 	
- ###### Print rows between pattern  
+###### Print rows between pattern  
 		awk '/PAT1/,/PAT2/' file    
 	Print lines between PAT1 and PAT2 - not including PAT1 and PAT2   
 		awk '/PAT1/{flag=1; next} /PAT2/{flag=0} flag' file  
@@ -220,6 +271,9 @@ Ignores character values and considers only numericals at col 3
 
 ###### Delete line range from a file
      sed -i '3,7d' SampleFile.txt
+    
+###### Delete lines containing multiple keywords
+     sed '/Dayan\|RinRao/d' records.txt
 
 ###### Remove blank lines
 	sed -i '/^$/d' file
