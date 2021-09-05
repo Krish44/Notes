@@ -339,6 +339,7 @@ Ignores character values and considers only numericals at col 3
      
 --------------------------------------------------------------------------------------------------------   
 ### Links:
+  - Regular Expressioins: https://www.guru99.com/linux-regular-expressions.html
   - Special Characters: https://tldp.org/LDP/abs/html/special-chars.html
   - Sed usage: http://www.theunixschool.com/2014/08/sed-examples-remove-delete-chars-from-line-file.html
   - awk usage: https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/  
