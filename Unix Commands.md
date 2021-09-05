@@ -114,7 +114,8 @@ Directly from the editor:
 ###### exec and {}  
 	find src -name "*.java" -type f -exec grep -l interface {} \;   
 	* Used the -exec option to execute the grep command on the list of files returned by the find command.  
-	* Semi-colon at the end causes the grep command to be executed for each file, one at a time, as the {} is replaced by the current file name.  
+	* Semi-colon at the end causes the grep command to be executed for each file, one at a time, as the {} is replaced by the current file name. 
+	* {} is a kind of placeholder for the output text we get from the previous command in the pipe
 	* Backslash is required to escape the semi-colon from being interpreted by the shell.  
 	
 ###### Delete files older than 30 days:
@@ -338,6 +339,7 @@ Ignores character values and considers only numericals at col 3
      
 --------------------------------------------------------------------------------------------------------   
 ### Links:
+  - Special Characters: https://tldp.org/LDP/abs/html/special-chars.html
   - Sed usage: http://www.theunixschool.com/2014/08/sed-examples-remove-delete-chars-from-line-file.html
   - awk usage: https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/  
                https://www.thegeekstuff.com/2010/02/awk-conditional-statements/  
