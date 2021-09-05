@@ -104,7 +104,13 @@ Directly from the editor:
    
 ###### List only the non-hidden empty files only in the current directory.   
 	find . -maxdepth 1 -empty -not -name ".*"   
-   
+
+###### exec and {}  
+	find src -name "*.java" -type f -exec grep -l interface {} \;   
+	* Used the -exec option to execute the grep command on the list of files returned by the find command.  
+	* Semi-colon at the end causes the grep command to be executed for each file, one at a time, as the {} is replaced by the current file name.  
+	* Backslash is required to escape the semi-colon from being interpreted by the shell.  
+	
 ###### Delete files older than 30 days:
 	find . -mtime +30 -exec rm {} \;
 
