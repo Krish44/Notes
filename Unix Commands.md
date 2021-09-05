@@ -85,7 +85,13 @@ Directly from the editor:
 
 	:! <command>  
 	Ex: :! pwd 
-	
+
+###### xargs   
+* can take output of a command and passes it as argument of another command     
+* no command is specified, xargs executes echo by default   
+	cut -d: -f1 < /etc/passwd | sort | xargs
+	- generate a compact list of all Linux user accounts on the system
+
 ### File management
 ###### Display appending 2 files
 	cat file1 file2
