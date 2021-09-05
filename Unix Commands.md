@@ -141,6 +141,24 @@ Directly from the editor:
 	
 ###### http://www.theunixschool.com/2014/08/sed-examples-remove-delete-chars-from-line-file.html
 
+###### Parameter expansion  
+	parameter     result    
+	-----------   ------------------------------   
+	$name         polish.ostrich.racing.champion   
+	${name#*.}           ostrich.racing.champion   
+	${name##*.}                         champion   
+	${name%%.*}   polish   
+	${name%.*}    polish.ostrich.racing   
+
+
+	parameter     result   
+	-----------   --------------------------------------------------------   
+	$file         /usr/share/java-1.4.2-sun/demo/applets/Clock/Clock.class   
+	${file#*/}     usr/share/java-1.4.2-sun/demo/applets/Clock/Clock.class   
+	${file##*/}                                                Clock.class   
+	${file%%/*}   
+	${file%/*}    /usr/share/java-1.4.2-sun/demo/applets/Clock  
+	
 ###### tee command
 	- Output of a program can be both displayed and saved in a file
 	wc -l file1.txt| tee file2.txt
